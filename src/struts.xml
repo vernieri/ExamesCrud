@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="registeruser" class="org.exames.action.RegisterAction">
+			<result name="REGISTER">/register.jsp</result>
+		</action>
+		<action name="report" class="org.exames.action.ReportAction">
+			<result name="REPORT">/report.jsp</result>
+		</action>
+		<action name="updatedetails" class="org.exames.action.UpdateAction">
+			<result name="UPDATE">/update.jsp</result>
+		</action>
+		<action name="deleterecord" class="org.exames.action.DeleteAction">
+			<result name="DELETE">/delete.jsp</result>
+		</action>
+	</package>
+</struts>  
