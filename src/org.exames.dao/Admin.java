@@ -57,3 +57,70 @@ public class Admin {
 			}
 		}
 	}
+	// Metodo que busca os dados antigos para atualizar(update)
+	public ResultSet fetchUserDetails(String ucpf) throws SQLException, Exception {
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT UNOME,UCPF,UNOTA,UCARGO FROM STRUTS2CRUD WHERE UCPF=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, ucpf);
+			rs = ps.executeQuery();
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
+
+	// Metodo para atualizar os dados.
+	public int updateUserDetails(String unome, String ucpf, String unota, String ucargo, String ucpfhidden)
+			throws SQLException, Exception {
+		getConnection().setAutoCommit(false);
+		int i = 0;
+		try {
+			String sql = "UPDATE STRUTS2CRUD SET UNOME=?,UCPF=?,UNOTA=?,UCARGO=? WHERE UCPF=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, unome);
+			ps.setString(2, ucpf);
+			ps.setString(3, unota);
+			ps.setString(4, ucargo);
+			ps.setString(5, ucpfhidden);
+			i = ps.executeUpdate();
+			return i;
+		} catch (Exception e) {
+			e.printStackTrace();
+			getConnection().rollback();
+			return 0;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
+
+	// Metodo para deletar dado
+	public int deleteUserDetails(String ucpf) throws SQLException, Exception {
+		getConnection().setAutoCommit(false);
+		int i = 0;
+		try {
+			String sql = "DELETE FROM STRUTS2CRUD WHERE UCPF=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, ucpf);
+			i = ps.executeUpdate();
+			return i;
+		} catch (Exception e) {
+			e.printStackTrace();
+			getConnection().rollback();
+			return 0;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
+}
+	
