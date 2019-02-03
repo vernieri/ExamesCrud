@@ -18,3 +18,42 @@ public class Admin {
 			return null;
 		}
 	}
+	// Metodo para criar dados no db
+	public int registerUser(String unome, String ucpf, String unota, String ucargo) throws Exception {
+		int i = 0;
+		try {
+			String sql = "INSERT INTO STRUTS2CRUD VALUES (?,?,?,?)";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, unome);
+			ps.setString(2, ucpf);
+			ps.setString(3, unota);
+			ps.setString(4, ucargo);
+			i = ps.executeUpdate();
+			return i;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return i;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
+
+	// Metodo de busca de dados do candidato(usuario)
+	public ResultSet report() throws SQLException, Exception {
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT UNAME,UCPF,UNOTA,UCARGO FROM STRUTS2CRUD";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (getConnection() != null) {
+				getConnection().close();
+			}
+		}
+	}
