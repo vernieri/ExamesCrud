@@ -21,12 +21,13 @@ Deleting a register
 ![alt text](https://github.com/vernieri/ExamesCrud/blob/master/img/done.png)
 After deleting.
 
-## Requeriments
+## Requeriments && Library Used
 ```
-TomCat Apache 8.0+
+TomCat 8.0+
 MySQL 5.5+
-Struts 2
-Java
+Struts 2 
+JDK 8
+MySQL Connector Jar
 ```
 
 ## License
