@@ -8,6 +8,10 @@ th {height: 30px;}
 .button-update {background-color: #008CBA;color: white;}
 .button-delete {background-color: red;color: white;}
 </style>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">	
 </head>
 <body>
 	<h2>Struts 2 CRUD USANDO JDBC</h2>
