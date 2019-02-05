@@ -13,10 +13,10 @@ Struts 2 CRUD + JDBC + Java Client + SOAP Web Service
 
 ## Requeriments
 ```
-*TomCat Apache 8.0+
-*MySQL 5.5+
-*Java
-
+TomCat Apache 8.0+
+MySQL 5.5+
+Struts 2
+Java
 ```
 
 ## License
